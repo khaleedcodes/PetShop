@@ -15,6 +15,11 @@ builder.Services.AddScoped<IInventoryTransactionRepository, InventoryTransaction
 // Register the existing Product repository
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
+builder.Services.AddScoped<ISalesReportRepository, SalesReportRepository>();
+
+builder.Services.AddScoped<ISalesAnalysisRepository, SalesAnalysisRepository>();
+
+
 // Add AutoMapper for DTO mappings
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
