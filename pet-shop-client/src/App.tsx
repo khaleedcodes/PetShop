@@ -1,15 +1,25 @@
-import ProductsPage from "./components/ProductsPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import ProductsPage from "./pages/ProductsPage";
+import CreateProductPage from "./pages/CreateProductPage"; // Correct import
+import ProductDetailPage from "./pages/ProductDetailPage"; // Import ProductDetailPage
+
 function App() {
   return (
-    <div className="App">
-      <header className="bg-blue-500 text-white p-4 text-center">
-        <h1 className="text-3xl">Pet Shop Management</h1>
-      </header>
-
-      <main className="mt-4">
-        <ProductsPage />
-      </main>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<ProductsPage />} /> {/* Products page at root */}
+        <Route
+          path="/products/create" // Route for creating a new product
+          element={<CreateProductPage />}
+        />
+        <Route
+          path="/products/:id" // Dynamic route for the product details page
+          element={<ProductDetailPage />} // Show product details based on the ID
+        />
+      </Routes>
+    </Router>
   );
 }
 
