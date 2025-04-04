@@ -1,5 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const Navbar = () => {
   const location = useLocation();
@@ -9,7 +9,7 @@ const Navbar = () => {
     <Link
       to={path}
       className={`px-4 py-2 rounded-md hover:bg-blue-600 hover:text-white transition-all ${
-        location.pathname === path ? 'bg-blue-500 text-white' : 'text-gray-700'
+        location.pathname === path ? "bg-blue-500 text-white" : "text-gray-700"
       }`}
     >
       {label}
@@ -20,7 +20,11 @@ const Navbar = () => {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo Section */}
-        <h1 className="text-xl font-bold text-blue-600">🐾 PetShop Dashboard</h1>
+        <Link to={"/"}>
+          <h1 className="text-xl font-bold text-blue-600">
+            🐾 PetShop Dashboard
+          </h1>
+        </Link>
 
         {/* Hamburger Menu Button (for mobile) */}
         <button
@@ -45,10 +49,10 @@ const Navbar = () => {
 
         {/* Desktop Navbar Items */}
         <div className="hidden lg:flex gap-2">
-          {navItem('/', 'Products')}
-          {navItem('/transactions', 'Transactions')}
-          {navItem('/reports', 'Reports')}
-          {navItem('/analysis', 'Sales Analysis')}
+          {navItem("/products", "Products")}
+          {navItem("/transactions", "Transactions")}
+          {navItem("/reports", "Reports")}
+          {navItem("/analysis", "Sales Analysis")}
         </div>
       </div>
 
@@ -56,10 +60,10 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-white shadow-md">
           <div className="flex flex-col items-start px-4 py-3">
-            {navItem('/', 'Products')}
-            {navItem('/transactions', 'Transactions')}
-            {navItem('/reports', 'Reports')}
-            {navItem('/analysis', 'Sales Analysis')}
+            {navItem("/products", "Products")}
+            {navItem("/transactions", "Transactions")}
+            {navItem("/reports", "Reports")}
+            {navItem("/analysis", "Sales Analysis")}
           </div>
         </div>
       )}
